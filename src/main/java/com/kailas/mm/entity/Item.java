@@ -10,7 +10,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer itemId;
 
-    @Column(name ="item_code")
+    @Column(name ="item_code")//Item code 
     private String itemCode;
 
     public Integer getItemId() {
