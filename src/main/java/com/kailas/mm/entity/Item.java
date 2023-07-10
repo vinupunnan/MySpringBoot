@@ -1,17 +1,24 @@
 package com.kailas.mm.entity;
 
+
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "item_master")
+
 public class Item {
     @Id
-    @Column(name= "item_id")
+    @Column(name= "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer itemId;
 
-    @Column(name ="item_code")//Item code 
+    @Column(name ="item_code")//Item code
     private String itemCode;
+
+    @Column(name ="description")
+    private String description;
+
 
     public Integer getItemId() {
         return itemId;
@@ -37,7 +44,5 @@ public class Item {
         this.description = description;
     }
 
-    @Column(name ="description")
-     private String description;
 
 }
