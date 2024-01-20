@@ -1,14 +1,11 @@
 package com.kailas.mm.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.kailas.mm.entity.Item;
+import com.kailas.mm.entity.sql.Item;
 import com.kailas.mm.exception.ItemNotFoundException;
 import com.kailas.mm.model.dto.ItemDto;
 
 import com.kailas.mm.repository.ItemRepository;
-import com.kailas.mm.service.ItemService;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +38,12 @@ public class ItemServiceImpl implements ItemService {
     public List<ItemDto> getAllItems() {
      List<Item> items = itemRepository.findAll();
     return items.stream().map(item -> new ItemDto(item)).collect(Collectors.toList());
+
+    }
+
+    @Override
+    public void saveItem(ItemDto itemDto) {
+        itemRepository.save(new Item (itemDto));
 
     }
 }
