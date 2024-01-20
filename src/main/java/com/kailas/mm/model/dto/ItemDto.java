@@ -1,6 +1,6 @@
 package com.kailas.mm.model.dto;
 
-import com.kailas.mm.entity.Item;
+import com.kailas.mm.entity.sql.Item;
 
 import java.io.Serializable;
 
@@ -8,6 +8,36 @@ public class ItemDto implements Serializable {
     private int itemId;
     private String itemCode;
     private String itemDescription;
+
+    private Short ficRequiredYesNo;
+
+    private Short classifiedYesNo;
+
+    private Integer pricingPolicy;
+
+    public Short getFicRequiredYesNo() {
+        return ficRequiredYesNo;
+    }
+
+    public void setFicRequiredYesNo(Short ficRequiredYesNo) {
+        this.ficRequiredYesNo = ficRequiredYesNo;
+    }
+
+    public Short getClassifiedYesNo() {
+        return classifiedYesNo;
+    }
+
+    public void setClassifiedYesNo(Short classifiedYesNo) {
+        this.classifiedYesNo = classifiedYesNo;
+    }
+
+    public Integer getPricingPolicy() {
+        return pricingPolicy;
+    }
+
+    public void setPricingPolicy(Integer pricingPolicy) {
+        this.pricingPolicy = pricingPolicy;
+    }
 
     public ItemDto() {
         super();

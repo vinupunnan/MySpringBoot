@@ -1,4 +1,4 @@
-package com.kailas.mm.entity;
+package com.kailas.mm.entity.sql;
 
 
 import com.kailas.mm.model.dto.ItemDto;
