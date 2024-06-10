@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 
+
 @SpringBootApplication
 //@EnableFeignClients
 //@ComponentScan(basePackages = "com.kailas.mm.*")
@@ -21,6 +22,7 @@ public class MMApplication {
 
     public static void main(String args[]){
         ConfigurableApplicationContext context =  SpringApplication.run(MMApplication.class,args);
+        System.out.println("Reeeeeeeeeeeeeee");
        //Singleton Test
         BeanScopeTestService service1=context.getBean(BeanScopeTestService.class);
         BeanScopeTestService service2=context.getBean(BeanScopeTestService.class);

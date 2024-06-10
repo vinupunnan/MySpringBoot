@@ -1,4 +1,4 @@
-package com.kailas.mm.entity.nonsql;
+package com.kailas.mm.model.entity.nonsql;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

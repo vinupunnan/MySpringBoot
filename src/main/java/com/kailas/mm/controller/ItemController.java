@@ -31,16 +31,12 @@ public class ItemController {
     @Value("${item.discount.price}")
     private String itemDiscount;
 
-
-
-
-
     @PostMapping("/new")
-    public ResponseEntity<BaseResponse> createNewEmployee( @RequestBody ItemDto itemDto){
-        System.out.println("Item Discount " +itemDiscount);
-      itemService.saveItem(itemDto);
-      //kafkaService.sentToKafka(itemDto);
-    return null;
+    public ResponseEntity<BaseResponse> createNewEmployee( @RequestBody ItemDto itemDto) {
+        System.out.println("Item Discount " + itemDiscount);
+        itemService.saveItem(itemDto);
+        //kafkaService.sentToKafka(itemDto);
+        return null;
     }
 
    @GetMapping("/itemId")

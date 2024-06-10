@@ -1,6 +1,6 @@
 package com.kailas.mm.model.dto;
 
-import com.kailas.mm.entity.sql.Item;
+import com.kailas.mm.model.entity.sql.Item;
 
 import java.io.Serializable;
 

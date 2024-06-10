@@ -1,6 +1,6 @@
 package com.kailas.mm.service.impl;
 
-import com.kailas.mm.entity.sql.Item;
+import com.kailas.mm.model.entity.sql.Item;
 import com.kailas.mm.exception.ItemNotFoundException;
 import com.kailas.mm.model.dto.ItemDto;
 
