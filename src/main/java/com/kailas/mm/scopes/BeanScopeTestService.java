@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class BeanScopeTestService {
     public BeanScopeTestService() {
-        System.out.println("Bean invokded ");
+        System.out.println("protype Bean invokded ");
     }
 }

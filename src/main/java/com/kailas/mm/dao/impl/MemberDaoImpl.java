@@ -9,7 +9,7 @@ import io.micrometer.core.instrument.Timer;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
+import org.springframework.transaction.annotation.Propagation;
 
 
 @Component
@@ -31,7 +31,7 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     @Override
-    @Transactional
+   // @Transactional(Propagation.REQUIRED)
     public PartyMember registerMember(PartyMemberDto payerMemberDto) {
         PartyMember member = new PartyMember(payerMemberDto);
         PartyMember savedMember =  memberRepository.save(member);

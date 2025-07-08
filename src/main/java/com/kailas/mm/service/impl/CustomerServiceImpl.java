@@ -16,8 +16,8 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
    // private final BigQuery bigQuery;
-    @Autowired
-    BigQuery bigQuery;
+//    @Autowired
+//    BigQuery bigQuery;
 
     @Autowired
 //    public CustomerServiceImpl(BigQuery bigQuery) {
@@ -29,21 +29,21 @@ public class CustomerServiceImpl implements CustomerService {
         QueryJobConfiguration queryConfig = QueryJobConfiguration.newBuilder(query).build();
 
         TableResult result;
-        try {
-            result = bigQuery.query(queryConfig);
-        } catch (InterruptedException e) {
-            throw new RuntimeException("Query interrupted", e);
-        }
-
+//        try {
+//  //          result = bigQuery.query(queryConfig);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException("Query interrupted", e);
+//        }
+//
         List<CustomerDto> customers = new ArrayList<>();
-        result.iterateAll().forEach(row -> {
-            CustomerDto customer = new CustomerDto();
-            customer.setId(row.get("cust_id").getLongValue());
-            customer.setName(row.get("first_name").getStringValue());
-            customer.setEmail(row.get("email_id").getStringValue());
-            customers.add(customer);
-        });
-
-        return customers;
+//        result.iterateAll().forEach(row -> {
+//            CustomerDto customer = new CustomerDto();
+//            customer.setId(row.get("cust_id").getLongValue());
+//            customer.setName(row.get("first_name").getStringValue());
+//            customer.setEmail(row.get("email_id").getStringValue());
+//            customers.add(customer);
+//        });
+//
+       return customers;
     }
 }

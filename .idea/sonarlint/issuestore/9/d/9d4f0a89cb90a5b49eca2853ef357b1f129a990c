@@ -1,0 +1,13 @@
+
+X	java:S125"<This block of commented-out lines of code should be removed.(ó·í£8£¶ôˆ 2
+®
+java:S1130!"‹Remove the declaration of thrown exception 'com.fasterxml.jackson.core.JsonProcessingException', as it cannot be thrown from method's body.(´ðÜ¿úÿÿÿÿ8³¶ôˆ 2
+X	java:S125""<This block of commented-out lines of code should be removed.(£áª€8³¶ôˆ 2
+X	java:S125%"<This block of commented-out lines of code should be removed.(¿øŒÉ8¼¶ôˆ 2
+G	java:S106,"+Replace this use of System.out by a logger.(º§¿8¾¶ôˆ 2
+]	java:S125-"<This block of commented-out lines of code should be removed.(êÖ½±øÿÿÿÿ8¿¶ôˆ 2
+G	java:S1065"+Replace this use of System.out by a logger.(º¾»Ë8Â¶ôˆ 2
+[
+java:S1128">Remove this unused import 'com.kailas.mm.common.BaseResponse'.(¶›ª±8Ä¶ôˆ 2
+{
+java:S1128"YRemove this unused import 'org.springframework.security.crypto.password.PasswordEncoder'.(‰¡ßáÿÿÿÿÿ8Å¶ôˆ 2

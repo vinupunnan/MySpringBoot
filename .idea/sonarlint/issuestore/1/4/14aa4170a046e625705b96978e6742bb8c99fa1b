@@ -1,0 +1,11 @@
+
+…
+java:S1488%"cImmediately return this expression instead of assigning it to the temporary variable "savedMember".(ÍÑ½ıÿÿÿÿ8¨ú†µ 2
+O
+java:S1135"2Complete the task associated to this TODO comment.(Ô¼ø8Îú†µ 2
+[
+java:S1128	">Remove this unused import 'jakarta.transaction.Transactional'.(ß–Ê³8Óú†µ 2
+u
+java:S1128"SRemove this unused import 'org.springframework.transaction.annotation.Propagation'.(èª¡Çûÿÿÿÿ8Óú†µ 2
+R
+java:S1068"5Remove this unused "memberInsertTimer" private field.(Ô¼ø8Óú†µ 2

@@ -17,24 +17,25 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/items")
 public class ItemController {
     @Autowired
-    @Qualifier("itemServiceImpl")
+   @Qualifier("itemServiceImpl")
     ItemService itemService;
 
-    @Autowired
-    KafkaServiceImpl kafkaService;
+//    @Autowired
+//    KafkaServiceImpl kafkaService;
 
     @Value("${item.discount.price}")
     private String itemDiscount;
 
     @PostMapping("/new")
-    public ResponseEntity<BaseResponse> createNewEmployee( @RequestBody ItemDto itemDto) {
+    public ResponseEntity<BaseResponse> createNewItem( @RequestBody List<ItemDto> itemDtos) throws ExecutionException, InterruptedException {
         System.out.println("Item Discount " + itemDiscount);
-        itemService.saveItem(itemDto);
+        itemService.saveItems(itemDtos);
         //kafkaService.sentToKafka(itemDto);
         return null;
     }

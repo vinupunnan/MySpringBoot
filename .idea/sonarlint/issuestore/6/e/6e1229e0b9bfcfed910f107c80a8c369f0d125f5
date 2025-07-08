@@ -1,0 +1,13 @@
+
+H
+java:S1168"+Return an empty collection instead of null.(¥¹ï8Ë±ëò2
+X	java:S125"<This block of commented-out lines of code should be removed.(¤¬‚Ò8Ñ±ëò2
+X	java:S125!"<This block of commented-out lines of code should be removed.(¡Õ±š8Ô±ëò2
+U
+java:S3400&"9Remove this method and declare a constant for this value.(¸®Ã'8Ö±ëò2
+R
+java:S1172%"5Remove this unused method parameter "partyMemberDto".(çéÍˆ8Û±ëò2
+g
+java:S1128"JRemove this unused import 'com.kailas.mm.exception.MemberExistsException'.(£ñÊ8İ±ëò2
+X
+java:S1144%";Remove this unused private "validatetheMemberExist" method.(çéÍˆ8à±ëò2

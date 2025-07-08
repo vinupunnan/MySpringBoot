@@ -1,0 +1,34 @@
+
+£
+java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Í¤íŞıÿÿÿÿ8ÇçÆÒö2
+]
+java:S1854#";Remove this useless assignment to local variable "context".(ŞŠĞúÿÿÿÿ8íºÃÒö2
+]	java:S125"<This block of commented-out lines of code should be removed.(±­ÁŒÿÿÿÿÿ8îºÃÒö2
+L
+java:S1197!"*Move the array designators [] to the type.(¡şÏÖøÿÿÿÿ8ïºÃÒö2
+G	java:S106""+Replace this use of System.out by a logger.(ôòî8ğºÃÒö2
+N
+java:S1481#",Remove this unused "context" local variable.(ŞŠĞúÿÿÿÿ8ñºÃÒö2
+L	java:S106$"+Replace this use of System.out by a logger.(•Ãçıÿÿÿÿ8òºÃÒö2
+X	java:S125&"<This block of commented-out lines of code should be removed.(›¨ª¾8óºÃÒö2
+]	java:S1259"<This block of commented-out lines of code should be removed.(û±Ì…ıÿÿÿÿ8éõÄÒö2
+h
+java:S1128"FRemove this unused import 'com.kailas.mm.scopes.BeanScopeTestService'.(¬—ßíúÿÿÿÿ8ÍçÆÒö2
+U
+java:S1128"8Remove this unused import 'com.kailas.mm.scopes.Single'.(Ô‘§Æ8ÍçÆÒö2
+u
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8ÍçÆÒö2
+l
+java:S1128"JRemove this unused import 'org.springframework.boot.ApplicationArguments'.(·ıˆóÿÿÿÿÿ8ÎçÆÒö2
+c
+java:S1128"GRemove this unused import 'org.springframework.boot.ApplicationRunner'.(ÃëòN8ÎçÆÒö2
+h
+java:S1128"KRemove this unused import 'org.springframework.context.ApplicationContext'.(»Ô»¿8ÎçÆÒö2
+e
+java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Ş8ÎçÆÒö2
+s
+java:S1128"QRemove this unused import 'org.springframework.context.annotation.ComponentScan'.(æëòÒûÿÿÿÿ8ÎçÆÒö2
+j
+java:S1128"HRemove this unused import 'org.springframework.web.client.RestTemplate'.(Îö¼Şûÿÿÿÿ8ÎçÆÒö2
+X
+java:S1128";Remove this unused import 'javax.annotation.PostConstruct'.(›ÅÁ8ÎçÆÒö2
