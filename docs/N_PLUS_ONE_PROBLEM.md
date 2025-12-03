@@ -196,8 +196,9 @@ public interface DepartmentProjection {
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
     
-    @Query("SELECT d.id as id, d.name as name, SIZE(d.employees) as employeeCount " +
-           "FROM Department d GROUP BY d.id, d.name")
+    @Query("SELECT d.id as id, d.name as name, " +
+           "(SELECT COUNT(e) FROM Employee e WHERE e.department = d) as employeeCount " +
+           "FROM Department d")
     List<DepartmentProjection> findAllDepartmentsWithEmployeeCount();
 }
 ```
@@ -208,10 +209,8 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
 SELECT 
     d.id as id, 
     d.name as name, 
-    COUNT(e.id) as employeeCount
-FROM department d 
-LEFT JOIN employee e ON d.id = e.department_id
-GROUP BY d.id, d.name
+    (SELECT COUNT(e.id) FROM employee e WHERE e.department_id = d.id) as employeeCount
+FROM department d
 ```
 
 ### Pros

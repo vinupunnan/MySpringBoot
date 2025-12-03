@@ -52,8 +52,9 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
      * Solution 3: Using DTO projection to fetch only required data.
      * This is the most efficient when you don't need full entity data.
      * Avoids loading unnecessary columns and relationships.
+     * Uses COUNT subquery instead of SIZE() for better performance.
      */
-    @Query("SELECT d.id as id, d.name as name, SIZE(d.employees) as employeeCount FROM Department d GROUP BY d.id, d.name")
+    @Query("SELECT d.id as id, d.name as name, (SELECT COUNT(e) FROM Employee e WHERE e.department = d) as employeeCount FROM Department d")
     List<DepartmentProjection> findAllDepartmentsWithEmployeeCount();
 
     /**
