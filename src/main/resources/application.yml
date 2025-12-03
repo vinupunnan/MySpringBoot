@@ -8,3 +8,20 @@ spring:
     user:
       name: vinu
       password: secret
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    # Uncomment the following to auto-create tables
+    # hibernate:
+    #   ddl-auto: create-drop
+
+# SQL Logging Configuration for observing N+1 problem
+# These settings help you see exactly what queries are being executed
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.kailas.mm.service.impl.DepartmentServiceImpl: INFO
