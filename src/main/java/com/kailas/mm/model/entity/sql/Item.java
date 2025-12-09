@@ -9,38 +9,36 @@ import jakarta.persistence.*;
 
 public class Item {
     @Id
-    @Column(name= "id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer itemId;
 
-    @Column(name ="item_code")//Item code
+    @Column(name = "item_code")//Item code
     private String itemCode;
 
-    @Column(name ="description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name="fic_required_yesno")
+    @Column(name = "fic_required_yesno")
     private Short ficRequiredYesNo;
 
 
-    @Column(name ="classified_yesno")
+    @Column(name = "classified_yesno")
     private Short classifiedYesNo;
 
-     @Column(name = "pricing_policy")
-     private Integer pricingPolicy;
+    @Column(name = "pricing_policy")
+    private Integer pricingPolicy;
 
     public Item() {
     }
 
     public Item(ItemDto itemDto) {
         this.itemCode = itemDto.getItemCode();
-        this.description =itemDto.getItemDescription();
-        this.pricingPolicy=itemDto.getPricingPolicy();
-        this.classifiedYesNo =itemDto.getClassifiedYesNo();
+        this.description = itemDto.getItemDescription();
+        this.pricingPolicy = itemDto.getPricingPolicy();
+        this.classifiedYesNo = itemDto.getClassifiedYesNo();
 
     }
-
-
 
 
     public Short getFicRequiredYesNo() {

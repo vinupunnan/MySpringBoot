@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class AlertDto {
     private String dcId;
-    List<Map<String,String>> data;
+    List<Map<String, String>> data;
 
     public AlertDto() {
     }

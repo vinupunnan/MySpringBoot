@@ -1,6 +1,4 @@
-package com.kailas.mm.listner;
-
-import com.kailas.mm.model.dto.ItemDto;
+package com.kailas.mm.kafkaop;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;

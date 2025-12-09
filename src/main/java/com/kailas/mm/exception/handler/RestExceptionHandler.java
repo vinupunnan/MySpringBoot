@@ -22,10 +22,13 @@ import java.util.Map;
 @RestControllerAdvice
 public class RestExceptionHandler {
     @ExceptionHandler(ItemNotFoundException.class)
-     public CustomizedErrorResponse handleItemNotfoundException(ItemNotFoundException ex) {
-        CustomizedErrorResponse response = new CustomizedErrorResponse();
-        response.setMessage(ex.getMessage());
-        return response;
+     public ResponseEntity handleItemNotfoundException(ItemNotFoundException ex) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("error", "Item Not Found");
+        response.put("invalidItemIds", ex.getItemIds());
+        response.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MemberExistsException.class)

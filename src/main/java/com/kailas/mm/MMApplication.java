@@ -22,12 +22,13 @@ import javax.annotation.PostConstruct;
 //@EnableFeignClients
 //@ComponentScan(basePackages = "com.kailas.mm.*")
 
+//public class MMApplication implements CommandLineRunner {
 public class MMApplication implements CommandLineRunner {
 
-//   //@PostConstruct
-//   // public void initLogic(){
-//        System.out.println("INSIDE THE POST CONSTRUCT");
-//    }
+    @PostConstruct
+    public void initLogic() {
+        System.out.println("INSIDE THE POST CONSTRUCT");
+    }
 
 
     public static void main(String args[]) {
@@ -47,14 +48,9 @@ public class MMApplication implements CommandLineRunner {
 
     }
 
+
     @Override
     public void run(String... args) throws Exception {
-
+        System.out.println("IN COMMAND LINE RUNNER METHOD");
     }
-
-
-//    @Override
-//    public void run(String... args) throws Exception {
-//        System.out.println("IN COMMAND LINE RUNNER METHOD");
-//    }
 }

@@ -12,7 +12,10 @@ public class CustomizedErrorResponse {
     }
 
     private String message;
+
     private Map<String, String> errorMap;
+
+
 
     private HttpStatusCode statusCode;
 

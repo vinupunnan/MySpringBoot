@@ -18,9 +18,9 @@ public class AlertSyncController {
     AlertSinkService alertSinkService;
     @PostMapping("/sync")
     public ResponseEntity<BaseResponse> postAlerts(@RequestBody AlertDto alertData){
-       String dcId = alertData.getDcId();
+        String dcId = alertData.getDcId();
         alertSinkService.saveAlerts(alertData);
-       BaseResponse response = new BaseResponse();
+        BaseResponse response = new BaseResponse();
         return new ResponseEntity<>(response, HttpStatus.OK);
 
     }

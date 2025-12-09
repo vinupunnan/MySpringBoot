@@ -20,9 +20,10 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/items")
 public class ItemController {
-    @Autowired
+   @Autowired
    @Qualifier("itemServiceImpl")
     ItemService itemService;
 

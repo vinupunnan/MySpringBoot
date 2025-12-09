@@ -43,10 +43,10 @@ public class ItemDto implements Serializable {
         super();
     }
 
-    public ItemDto(Item item){
+    public ItemDto(Item item) {
         this.itemId = item.getItemId();
-        this.itemCode =item.getItemCode();
-        this.itemDescription =item.getDescription();
+        this.itemCode = item.getItemCode();
+        this.itemDescription = item.getDescription();
 
     }
 
