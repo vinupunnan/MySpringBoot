@@ -14,7 +14,7 @@ public class KafkaOutboxPublisher {
 
     public boolean tryPublish(OutboxAlertEntity entity) {
         try {
-            kafkaTemplate.send("alerts.topic", entity.getPayload());
+            kafkaTemplate.send("alerts", entity.getDcId(), entity.getPayload());
             return true;
         } catch (Exception e) {
             return false;
