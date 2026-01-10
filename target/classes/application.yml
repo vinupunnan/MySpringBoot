@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: vinu
+    url: jdbc:mysql://localhost:3306/his_db
+  security:
+    user:
+      name: vinu
+      password: secret
