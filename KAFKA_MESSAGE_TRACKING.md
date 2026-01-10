@@ -222,9 +222,20 @@ To monitor failed messages:
 
 ## Configuration
 
+### Kafka Producer Configuration
+
+The implementation includes a `KafkaProducerConfig` class that configures the Kafka producer with the following settings:
+
+- **Bootstrap Servers**: Kafka broker addresses (default: localhost:9092)
+- **Acknowledgments**: Set to "all" for maximum reliability
+- **Retries**: 3 retry attempts for failed sends
+- **Batch Size**: 16384 bytes
+- **Linger Time**: 1ms for batching optimization
+- **Buffer Memory**: 32MB for producer buffer
+
 ### Required Application Properties
 
-Add the following to `application.properties` or `application.yml`:
+The Kafka configuration is already added to `application.yml`:
 
 ```yaml
 # Kafka Configuration
@@ -236,7 +247,12 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       acks: all
       retries: 3
+      batch-size: 16384
+      linger-ms: 1
+      buffer-memory: 33554432
 ```
+
+**Note**: Update `bootstrap-servers` to point to your Kafka broker(s) in production.
 
 ## Dependencies Added
 
