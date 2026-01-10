@@ -10,18 +10,6 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
-# IDE
-.idea/
-*.iml
-*.iws
-*.ipr
-.classpath
-.project
-.settings/
-
 # OS
 .DS_Store
 Thumbs.db
-
-# Derby
-derby.log
