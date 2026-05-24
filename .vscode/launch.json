@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MMApplication<mm-project>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.kailas.mm.MMApplication",
+            "projectName": "mm-project",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

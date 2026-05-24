@@ -23,8 +23,8 @@ import java.util.concurrent.ExecutionException;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/items")
 public class ItemController {
-   @Autowired
-   @Qualifier("itemServiceImpl")
+    @Autowired
+    @Qualifier("itemServiceImpl")
     ItemService itemService;
 
 //    @Autowired
@@ -34,33 +34,34 @@ public class ItemController {
     private String itemDiscount;
 
     @PostMapping("/new")
-    public ResponseEntity<BaseResponse> createNewItem( @RequestBody List<ItemDto> itemDtos) throws ExecutionException, InterruptedException {
+    public ResponseEntity<BaseResponse> createNewItem(@RequestBody List<ItemDto> itemDtos) throws ExecutionException, InterruptedException {
         System.out.println("Item Discount " + itemDiscount);
         itemService.saveItems(itemDtos);
         //kafkaService.sentToKafka(itemDto);
         return null;
     }
 
-   @GetMapping("/itemId")
-    public ResponseEntity<BaseResponse> getItem(@RequestParam  Integer itemId) throws JsonProcessingException {
-      // beanCreation.printGreeting();
-
-     BaseResponse baseResponse = new BaseResponse(HttpStatus.OK.value(),"Success",itemService.getItem(itemId),null);
-    return new ResponseEntity<>(baseResponse,HttpStatus.OK);
+    @GetMapping("/itemId")
+    public ResponseEntity<BaseResponse> getItem(@RequestParam Integer itemId) throws JsonProcessingException {
+        // beanCreation.printGreeting();
+        itemService.getItem(itemId);
+        BaseResponse baseResponse = new BaseResponse(HttpStatus.OK.value(), "Success", itemService.getItem(itemId), null);
+        return new ResponseEntity<>(baseResponse, HttpStatus.OK);
 
     }
 
-   @GetMapping("/")
-    public ResponseEntity<List<ItemDto>> getAllItems(){
-    List<ItemDto> itemList = itemService.getAllItems();
-       return new ResponseEntity<>(itemList,HttpStatus.OK);
-}
+    @GetMapping("/")
+    public ResponseEntity<List<ItemDto>> getAllItems() {
+        List<ItemDto> itemList = itemService.getAllItems();
+        return new ResponseEntity<>(itemList, HttpStatus.OK);
+    }
+
     @PostMapping("/kafka")
     public void createEmployee(@RequestBody ItemDto item) {
-       String ster = item.getItemCode();
+        String ster = item.getItemCode();
         String desc = item.getItemDescription();
 
     }
-    }
+}
 
 

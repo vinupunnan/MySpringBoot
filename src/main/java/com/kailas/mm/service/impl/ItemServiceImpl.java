@@ -16,6 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
@@ -24,71 +25,65 @@ import java.util.stream.Collectors;
 @Service
 public class ItemServiceImpl implements ItemService {
 
-
-   @Autowired
-   ItemRepository itemRepository;
+    @Autowired
+    ItemRepository itemRepository;
 
     @Autowired
     private KafkaPublisher kafkaPublisher;
 
-//    @Autowired //Setter Injection
-//    // Non immutabale.No mandatory ,But no circular dependency when used with @Lazy Annotation
-//    public void setItemRepository(ItemRepository itemRepository) {
-//        this.itemRepository = itemRepository;
-//    }
+    // @Autowired //Setter Injection
+    // // Non immutabale.No mandatory ,But no circular dependency when used with
+    // @Lazy Annotation
+    // public void setItemRepository(ItemRepository itemRepository) {
+    // this.itemRepository = itemRepository;
+    // }
 
-//    @Autowired
-//    public ItemServiceImpl(ItemRepository itemRepository) {
-//        this.itemRepository = itemRepository;
-//    }
+    // @Autowired
+    // public ItemServiceImpl(ItemRepository itemRepository) {
+    // this.itemRepository = itemRepository;
+    // }
 
-
-       @Autowired
-       @Lazy
-       TestService service ;
-
-
-
-
+    @Autowired
+    @Lazy
+    TestService service;
 
     @Override
-    public ItemDto getItem(int itemId)  {
-        Optional<Item> test=      itemRepository.findById(itemId);
+    public ItemDto getItem(int itemId) {
+        Optional<Item> test = itemRepository.findById(itemId);
         Pageable pageable = PageRequest.of(1, 1);
-        Page<Item> items =itemRepository.findAll(pageable);
-
-        if( test.isPresent()){
+        Page<Item> items = itemRepository.findAll(pageable);
+        if (test.isPresent()) {
             System.out.println("PRESEEEENt");
-        }else{
+        } else {
             System.out.println("Not Present");
         }
+        List<String> errorIds = new ArrayList<>();
 
+        Item item = itemRepository.findByItemId(itemId);
+        if (null == item) {
 
-        Item item =
-             itemRepository.findByItemId(itemId);
-            if (null == item) {
-               // logger.error("Item not found");
-                throw new ItemNotFoundException("Item with id " +itemId +" Not found");
-            }else{
+            errorIds.add(String.valueOf(itemId));
+            throw new ItemNotFoundException("Item Not found", errorIds);
+        } else {
 
-        ItemDto itemDto = new ItemDto(item);
-        return itemDto;
-}
+            ItemDto itemDto = new ItemDto(item);
+            return itemDto;
+        }
     }
 
     @Override
     public List<ItemDto> getAllItems() {
-     List<Item> items = itemRepository.findAll();
-    return items.stream().map(item -> new ItemDto(item)).collect(Collectors.toList());
+        List<Item> items = itemRepository.findAll();
+        return items.stream().map(item -> new ItemDto(item)).collect(Collectors.toList());
 
     }
 
     @Override
     public void saveItems(List<ItemDto> itemDtos) throws ExecutionException, InterruptedException {
-       List<Item> itemList =  itemDtos.stream().map(itemDto -> new Item(itemDto)).collect(Collectors.toList());
+        List<Item> itemList = itemDtos.stream().map(itemDto -> new Item(itemDto)).collect(Collectors.toList());
         itemRepository.saveAll(itemList);
-        for (ItemDto dto : itemDtos) {
-            kafkaPublisher.publishToTopic("ItemTopic",dto.getItemCode(), dto);
-        }
+        // for (ItemDto dto : itemDtos) {
+        // kafkaPublisher.publishToTopic("ItemTopic", dto.getItemCode(), dto);
+        // }
     }
 }

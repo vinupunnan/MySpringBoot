@@ -1,7 +1,6 @@
 package com.kailas.mm.configuration;
 
 
-
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -25,11 +24,13 @@ public class KafkaProducerConfig {
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        //configProps.put
         return new DefaultKafkaProducerFactory<>(configProps);
     }
+
     @Bean
-    public KafkaTemplate<String ,Object> kafkaTemplate(){
-        return  new KafkaTemplate<>(producerFactory());
+    public KafkaTemplate<String, Object> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
     }
 
 }

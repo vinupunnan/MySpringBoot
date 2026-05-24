@@ -9,8 +9,10 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findBySalary(int sal);
-@Query(value ="select e from Employee e where e.salary > :salary")
-  List<Employee> findBySalaryByJpql(@Param("salary") int sal);
-    @Query(value = "select * from employees  where salary > ?",nativeQuery = true)
-List<Employee> findByNormalQuery(int sal);
+
+    @Query(value = "select e from Employee e where e.salary > :salary")
+    List<Employee> findBySalaryByJpql(@Param("salary") int sal);
+
+    @Query(value = "select * from employees  where salary > ?", nativeQuery = true)
+    List<Employee> findByNormalQuery(int sal);
 }

@@ -1,5 +1,6 @@
 package com.kailas.mm;
 
+import com.kailas.mm.configuration.ThresholdProperties;
 import com.kailas.mm.scopes.BeanScopeTestService;
 import com.kailas.mm.scopes.Single;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,21 +10,26 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 
 
 @SpringBootApplication
+@EnableScheduling
 //@EnableFeignClients
-//@ComponentScan(basePackages = "com.kailas.mm.*")
+@EnableKafka
+@EnableConfigurationProperties(ThresholdProperties.class)
 
 //public class MMApplication implements CommandLineRunner {
-public class MMApplication implements CommandLineRunner {
+public class MMApplication {
 
     @PostConstruct
     public void initLogic() {
@@ -47,10 +53,10 @@ public class MMApplication implements CommandLineRunner {
 //        Single single2 =  context.getBean(Single.class)  ;
 
     }
+//If commandline runner is implemented
 
-
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("IN COMMAND LINE RUNNER METHOD");
-    }
+//    @Override
+//    public void run(String... args) throws Exception {
+//        System.out.println("IN COMMAND LINE RUNNER METHOD");
+//    }
 }

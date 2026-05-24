@@ -1,7 +1,0 @@
-
-€
-java:S1488"jImmediately return this expression instead of assigning it to the temporary variable "reservationDtoList".(‹õ‚Ÿ
-h
-java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(‹õ‚Ÿ
-V
-java:S1612"@Replace this lambda with method reference 'ReservationDto::new'.(‹õ‚Ÿ

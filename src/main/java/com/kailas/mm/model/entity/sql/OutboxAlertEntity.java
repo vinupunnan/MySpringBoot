@@ -25,6 +25,8 @@ public class OutboxAlertEntity {
 
     private Instant lastAttempt;
 
+    private Integer attemptCount = 0;
+
     public Map<String, Object> getPayload() {
         return payload;
     }
@@ -71,5 +73,13 @@ public class OutboxAlertEntity {
 
     public void setDcId(String dcId) {
         this.dcId = dcId;
+    }
+
+    public Integer getAttemptCount() {
+        return attemptCount;
+    }
+
+    public void setAttemptCount(Integer attemptCount) {
+        this.attemptCount = attemptCount;
     }
 }

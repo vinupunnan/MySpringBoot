@@ -1,6 +1,5 @@
 package com.kailas.mm.service.impl;
 
-
 import com.kailas.mm.model.properties.Limit;
 import com.kailas.mm.model.properties.RateLimitProperties;
 import io.github.bucket4j.Bandwidth;
@@ -8,8 +7,6 @@ import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Refill;
 import org.springframework.stereotype.Service;
 
-
-;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -29,14 +26,14 @@ public class DcRateLimiterService {
     public Bucket getBucketFor(String dcId) {
 
         return bucketCache.computeIfAbsent(dcId, id -> {
-            Limit limit = properties.getDcs().get(id);
+            Limit limitone = properties.getDcs().get(id);
 
-            if (limit == null) {
-                limit = properties.getDefaultLimit();
+            if (limitone == null) {
+                limitone = properties.getDefaultLimit();
             }
 
-            int capacity = limit.getCapacity();
-            int period = limit.getPeriod();
+            int capacity = limitone.getCapacity();
+            int period = limitone.getPeriod();
 
             Refill refill = Refill.greedy(capacity, Duration.ofSeconds(period));
             Bandwidth bandwidth = Bandwidth.classic(capacity, refill);
